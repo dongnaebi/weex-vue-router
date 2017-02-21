@@ -1,6 +1,6 @@
 {
   "name": "weex-vue-router",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "router for weex as you can use some feature of vue-router",
   "main": "index.js",
   "keywords": [
@@ -10,6 +10,13 @@
     "android",
     "ios"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dongnaebi/weex-vue-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dongnaebi/weex-vue-router/issues"
+  },
   "scripts": {
     "build": "webpack",
     "serve": "serve -p 8080",
