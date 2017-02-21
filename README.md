@@ -3,6 +3,14 @@
 $ npm install weex-vue-router
 ```
 ## Useage ##
+```html
+<template>
+    <div>
+        <div @click="jump('/product/123')"><text>Jump</text></div>
+    </div>
+</template>
+```
+
 ```javascript
 import weexVueRouter from 'weex-vue-router'
 import routes from './native-router'//web-router and native-router need to be defined separately。
@@ -22,11 +30,13 @@ export default {
 ## Construction options ##
 ```javascript
 //native-router.js
+const domain='http://domain.com';
 const routes = [{
-    path:'/path/:id';
-    component:'http://domain.com/dist/path/foo.js';//js bundle address，must end with '.js'
-    name:'myName';
-}]
+    path:'/product/:id';
+    component:domain+'/dist/product/detail.js';//js bundle address，must end with '.js'
+    name:'product';
+}];
+export default routes;
 ```
 ## Component injections ##
 $router
