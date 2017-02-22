@@ -2,44 +2,48 @@
  * Created by ebi on 2017/2/14.
  */
 import pathToRegexp from 'path-to-regexp'
-export function install(Vue,{routes,weex}){
-    let platform=weex.config.env?weex.config.env.platform:weex.config.platform;
-    if(platform.toLowerCase()=='web')return;
-    const navigator=weex.requireModule('navigator');
-    let bundleUrl=weex.config.bundleUrl;
-    const route=bundleToPath(bundleUrl,routes);
-    Object.defineProperty(Vue.prototype, "$router", {
-        value:{
-            push(url){
-                let bundle=pathToBundle(url,routes);
-                if(navigator){
-                    console.log(bundle);
-                    navigator.push({
-                        'url':bundle,
-                        'animated':'true'
-                    }, function() {console.log('skip complete')});
+const weexVueRouter = {
+    install(Vue, {routes, weex}){
+        let platform = weex.config.env ? weex.config.env.platform : weex.config.platform;
+        if (platform.toLowerCase() == 'web')return;
+        const navigator = weex.requireModule('navigator');
+        let bundleUrl = weex.config.bundleUrl;
+        const route = bundleToPath(bundleUrl, routes);
+        Object.defineProperty(Vue.prototype, "$router", {
+            value: {
+                push(url){
+                    let bundle = pathToBundle(url, routes);
+                    if (navigator) {
+                        console.log(bundle);
+                        navigator.push({
+                            'url': bundle,
+                            'animated': 'true'
+                        }, function () {
+                            console.log('skip complete')
+                        });
+                    }
+                },
+                back(){
+                    if (navigator) {
+                        navigator.pop();
+                    }
                 }
             },
-            back(){
-                if(navigator){
-                    navigator.pop();
-                }
+            configurable: false
+        });
+        Object.defineProperty(Vue.prototype, '$route', {
+            configurable: false,
+            value: {
+                path: route.path,
+                params: route.params,
+                query: route.query,
+                hash: route.hash,
+                fullPath: route.fullPath,
+                matched: route.matched,
+                name: route.name
             }
-        },
-        configurable:false
-    });
-    Object.defineProperty(Vue.prototype, '$route', {
-        configurable:false,
-        value:{
-            path:route.path,
-            params:route.params,
-            query:route.query,
-            hash:route.hash,
-            fullPath:route.fullPath,
-            matched:route.matched,
-            name:route.name
-        }
-    });
+        });
+    }
 }
 function pathToBundle(url,routes){
     /* url='/list/2-1?from=1#2'
@@ -185,3 +189,4 @@ function getParams(str) {
     });
     return temp;
 }
+export default weexVueRouter;
