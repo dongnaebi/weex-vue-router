@@ -1,8 +1,11 @@
+## Demo ##
+[xiazhou-weex](https://github.com/dongnaebi/xiazhou-weex)
+
 ## Install ##
 ```bash
 $ npm install weex-vue-router
 ```
-## Useage ##
+## Usage ##
 ```html
 <template>
     <div>
@@ -53,9 +56,9 @@ $route
 - name()
 
 ## 原理(求翻译) ##
-需编译成两套，web端使用`vue-router`做SPA架构，单独编译出一个js。
+需编译成两套，web端使用`vue-router`做SPA架构，单独编译出一个js(demo中的`dist/app.js`)。
 
-native端则对应`.vue`文件编译成js bundle。
+native端则对应`.vue`文件编译成js bundle(demo中`app/pages`目录下的文件编译后分别对应dist中的js文件)。
 
 在组件中写跳转`$this.router.push('/path/1')`，web端用vue-router跳转。
 
@@ -64,5 +67,4 @@ native端接收到`/path/1`，对应自己定义的routes匹配出js bundle地�
 ## TODO ##
 - 分模块&更严谨的逻辑
 - 加单测
-- example
 - meta和别名
