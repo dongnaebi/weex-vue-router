@@ -1,6 +1,6 @@
 {
   "name": "weex-vue-router",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "router for weex as you can use some feature of vue-router",
   "main": "index.js",
   "keywords": [

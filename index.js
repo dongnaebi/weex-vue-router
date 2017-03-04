@@ -1,7 +1,7 @@
 /**
  * weex-vue-router v0.0.3
  * (c) 2017 dongnaebi
- * @license MIT
+ * @license Apache-2.0
  */
 'use strict';
 

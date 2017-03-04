@@ -16,6 +16,6 @@ module.exports = {
   banner: `/**
  * weex-vue-router v${version}
  * (c) ${new Date().getFullYear()} dongnaebi
- * @license MIT
+ * @license Apache-2.0
  */`
 }
