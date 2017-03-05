@@ -43,17 +43,17 @@ export default routes;
 ```
 ## Component injections ##
 $router
-- push()-only surport string featrue, like `/path/:foo/:bar`
+- push() -only surport string featrue, like `/path/:foo/:bar`
 - back()
 
 $route
-- path()
-- params()
-- query()
-- hash()
-- fullpath()
-- matched()
-- name()
+- path
+- params
+- query
+- hash
+- fullpath
+- matched
+- name
 
 ## 原理(求翻译) ##
 需编译成两套，web端使用`vue-router`做SPA架构，单独编译出一个js(demo中的`dist/app.js`)。
