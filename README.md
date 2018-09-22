@@ -16,8 +16,8 @@ $ npm install weex-vue-router
 
 ```javascript
 import weexVueRouter from 'weex-vue-router'
-import routes from './native-router'//web-router and native-router need to be defined separately。
-Vue.use(weexVueRouter,{routes,weex})
+import routes from './native-router'// web-router and native-router need to be defined separately.
+Vue.use(weexVueRouter, {routes,weex})
 
 export default {
     methods:{
@@ -32,13 +32,15 @@ export default {
 ```
 ## Construction options ##
 ```javascript
-//native-router.js
-const domain='http://domain.com';
-const routes = [{
-    path:'/product/:id';
-    component:domain+'/dist/product/detail.js';//js bundle address，must end with '.js'
-    name:'product';
-}];
+// native-router.js
+const domain = "http://domain.com";
+const routes = [
+  {
+    path: "/product/:id",
+    component: domain + "/dist/product/detail.js", // js bundle address，must end with '.js'
+    name: "product"
+  }
+];
 export default routes;
 ```
 ## Component injections ##
